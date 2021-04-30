@@ -2,7 +2,7 @@
 import { getAds } from '../../../api/ads'
 import './AdsPage.css'
 import { data } from '../../../data'
-import AdsList from './AdsList'
+import AdsGrid from './AdsGrid'
 const AdsPage = () => {
     //const ads = getAds();
 
@@ -11,7 +11,7 @@ const AdsPage = () => {
     const ads = data;
     //console.log(ads)
     return (
-        <AdsList ads={ads} />
+        <AdsGrid ads={ads} />
     )
 
 }
