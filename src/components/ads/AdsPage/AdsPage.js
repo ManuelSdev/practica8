@@ -3,6 +3,7 @@ import { getAds } from '../../../api/ads'
 import './AdsPage.css'
 import { data } from '../../../data'
 import AdsGrid from './AdsGrid'
+import Layout from '../../layout/Header'
 const AdsPage = () => {
     //const ads = getAds();
 
@@ -11,7 +12,11 @@ const AdsPage = () => {
     const ads = data;
     //console.log(ads)
     return (
-        <AdsGrid ads={ads} />
+        <div className="AdsPage">
+            <Layout></Layout>
+            <AdsGrid ads={ads} />
+        </div>
+
     )
 
 }

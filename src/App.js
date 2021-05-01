@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import AdsPage from './components/ads/AdsPage/AdsPage';
+import LoginForm from './components/auth/LoginPage/LoginForm';
+import LoginPage from './components/auth/LoginPage/LoginPage';
 
 function App() {
   return (
@@ -20,9 +22,13 @@ function App() {
           Learn React
         </a>
       </header>
-       */}
+       */
+      }
 
-      <AdsPage />
+      {/*<AdsPage />*/}
+      <LoginPage></LoginPage>
+
+
     </div>
   );
 }
