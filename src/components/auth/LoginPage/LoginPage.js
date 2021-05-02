@@ -1,20 +1,67 @@
+import React from 'react';
 import Button from "../../shared/Button"
 import LoginForm from "./LoginForm"
+import { AuthContextConsumer } from '../../context/AppLoginContext';
+import { login } from '../../../api/auth'
 
 
-const LoginPage = () => {
+const LoginPage = ({ onLogin }) => {
+    const [error, setError] = React.useState(null);
+    const [isLoading, setIsLoading] = React.useState(false);
+    //Esta uso de useRef almacena un valor que persiste mientras no lo cambies
+    const isLogged = React.useRef(false);
+
+    const resetError = () => setError(null);
+
+    React.useEffect(() => {
+        if (isLogged.current) {
+            onLogin();
+            //const { from } = location.state || { from: { pathname: '/' } };
+            //** const from = location.state ? location.state.from : {pathname: '/'}
+
+            //history.replace(from);
+        }
+    });
+    //Este método bajará como prop onSubmit a <LoginForm>
+    const handleSubmit = async credentials => {
+        // login(credentials).then(() => onLogin());
+        resetError();
+        setIsLoading(true);
+        console.log("holi")
+        try {
+            await login(credentials);
+            //Los cambios en la referencia no ejectutan un nuevo render
+            isLogged.current = true;
+        } catch (error) {
+            setError(error);
+            window.alert(error)
+        } finally {
+            setIsLoading(false);
+        }
+    };
 
 
+    console.log(isLogged)
     return (
         <div className="LoginPage">
-            <div class="container">
-                <LoginForm></LoginForm>
-                <Button></Button>
+            <div className="container">
+                <LoginForm isLoading={isLoading} onSubmit={handleSubmit}></LoginForm>
             </div>
 
         </div>
     )
 
 }
+/**
+ * en value recibe las propiedades del contexto
+ * en props recibe propiedades que puedan llegar desde componentes superiores
+ */
+const ConnectedLoginPage = props => {
+    return (
+        <AuthContextConsumer>
+            {value => <LoginPage {...value} {...props} />}
+        </AuthContextConsumer>
+    );
+};
 
-export default LoginPage
+export default ConnectedLoginPage;

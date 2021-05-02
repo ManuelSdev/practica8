@@ -3,7 +3,7 @@
 const Ad = ({ ad }) => {
     //const ads = getAds();
 
-    const foto = "casa.jpg";
+    const foto = `${process.env.REACT_APP_API_BASE_URL}${ad.photo}`;
     //console.log(ad)
     return (
         <div className="Ad">
@@ -18,7 +18,7 @@ const Ad = ({ ad }) => {
 
                         <div className="media-content">
                             <p className="title is-4">{ad.price}</p>
-                            <p className="title is-4">ad.name</p>
+                            <p className="title is-4">{ad.name}</p>
                         </div>
                     </div>
 

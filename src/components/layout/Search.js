@@ -4,12 +4,12 @@
 const Search = () => {
     return (
         <div className="Search">
-            <div class="field has-addons">
-                <div class="control">
-                    <input class="input" type="text" placeholder="Find a repository" />
+            <div className="field has-addons">
+                <div className="control">
+                    <input className="input" type="text" placeholder="Find a repository" />
                 </div>
-                <div class="control">
-                    <a class="button is-info">
+                <div className="control">
+                    <a className="button is-info">
                         Search
     </a>
                 </div>

@@ -1,3 +1,5 @@
+//Este módulo centraliza las llamadas a los anuncios
+
 import client from './client'
 
 //Esta ruta es de nodepop-api

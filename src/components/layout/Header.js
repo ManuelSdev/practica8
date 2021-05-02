@@ -7,8 +7,8 @@ const Header = () => {
 
     return (
         <div className="Header">
-            <div class="container is-fluid">
-                <div class="notification is-primary">
+            <div className="container is-fluid">
+                <div className="notification is-primary">
                     <Search></Search>
                     <Button></Button>
                 </div>

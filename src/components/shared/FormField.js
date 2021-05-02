@@ -1,10 +1,16 @@
 
 
-const FormField = () => {
+const FormField = ({ children, ...props }) => {
 
     return (
-        <div className="FormField">
-            <input class="input is-primary" type="text" placeholder="Primary input"></input>
+        <div className="formField">
+            <input
+                className="input is-primary"
+                type="text"
+                placeholder={children}
+                // autoComplete="off"
+                {...props}
+            />
 
         </div>
     )

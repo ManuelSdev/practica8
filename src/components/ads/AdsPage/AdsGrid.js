@@ -3,8 +3,8 @@ import Ad from './Ad'
 import './AdsGrid.css'
 const AdsGrid = ({ ads }) => {
     //const ads = getAds();
-    const ae = ads;
-    const foto = ads[1].photo;
+    //const ae = ads;
+    //const foto = ads[1].photo;
     //console.log(ads)
     const returnElements = function (array) {
         for (let i = 0; i < array.length; i++) {
@@ -80,12 +80,14 @@ const AdsGrid = ({ ads }) => {
         <div className="AdsGrid">
             {/*<Ad ads={ads}></Ad>*/}
             <div className="container">
-                <main className="adsGrid">
+                <main className="ads-custom-grid">
                     {/*cRows(ads)*/}
                     {/*maxFourAds.map(fourColums => fourColums)*/}
-                    {ads.map(ad => (
-                        <Ad key={ad.id} ad={ad} ></Ad>
-                    ))}
+                    {
+                        ads.map(ad => (
+                            <Ad key={ad.id} ad={ad} ></Ad>
+                        ))
+                    }
 
                 </main>
 
