@@ -4,7 +4,14 @@ import LoginForm from "./LoginForm"
 import { AuthContextConsumer } from '../../context/AppLoginContext';
 import { login } from '../../../api/auth'
 
-
+/**
+ * 
+ * AuthContextProvider "emite" un objeto value={authValue} que captamos con AuthContextConsumer
+ * Este tiene tres propiedades
+ * Pasamos como parámetro solo las que usamos: onLogin
+ * El paso de parámetros anterior es igual que cuando llegan por props que baja el padre
+ * 
+ */
 const LoginPage = ({ onLogin }) => {
     const [error, setError] = React.useState(null);
     const [isLoading, setIsLoading] = React.useState(false);

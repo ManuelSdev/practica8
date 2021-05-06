@@ -5,13 +5,13 @@ const Search = () => {
     return (
         <div className="Search">
             <div className="field has-addons">
-                <div className="control">
-                    <input className="input" type="text" placeholder="Find a repository" />
+                <div className="control is-expanded">
+                    <input className="input" type="text" placeholder="Busca en todas las categorías" />
                 </div>
-                <div className="control">
+                <div className="control ">
                     <a className="button is-info">
-                        Search
-    </a>
+                        Buscar
+                    </a>
                 </div>
             </div>
         </div>

@@ -1,3 +1,4 @@
+import Layout from "../../layout/Layout"
 
 
 
@@ -5,9 +6,9 @@ const NewAdPage = () => {
 
 
     return (
-        <div className="newAdPage">
+        <Layout>
 
-        </div>
+        </Layout>
     )
 }
 

@@ -6,7 +6,6 @@ const FormField = ({ children, ...props }) => {
         <div className="formField">
             <input
                 className="input is-primary"
-                type="text"
                 placeholder={children}
                 // autoComplete="off"
                 {...props}

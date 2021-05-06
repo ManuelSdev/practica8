@@ -1,9 +1,19 @@
+import FormField from "../../shared/FormField"
 
 
 const NewAdForm = () => {
 
     return (
-        <div className="newAdForm"></div>
+        <form className="newAdForm">
+            <FormField
+                type="text"
+                name="item"
+
+            >
+
+
+            </FormField>
+        </form>
     )
 }
 

@@ -78,20 +78,13 @@ const AdsGrid = ({ ads }) => {
 
     return (
         <div className="AdsGrid">
-            {/*<Ad ads={ads}></Ad>*/}
-            <div className="container">
-                <main className="ads-custom-grid">
-                    {/*cRows(ads)*/}
-                    {/*maxFourAds.map(fourColums => fourColums)*/}
-                    {
-                        ads.map(ad => (
-                            <Ad key={ad.id} ad={ad} ></Ad>
-                        ))
-                    }
+            <main className="ads-custom-grid">
+                {ads.map(ad => (
+                    <Ad key={ad.id} ad={ad} ></Ad>
+                ))}
+            </main>
 
-                </main>
 
-            </div>
         </div>
     )
 
