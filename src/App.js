@@ -6,6 +6,8 @@ import AdsPage from './components/ads/AdsPage/AdsPage';
 import LoginForm from './components/auth/LoginPage/LoginForm';
 import LoginPage from './components/auth/LoginPage/LoginPage';
 import { AuthContextProvider } from './components/context/AppLoginContext';
+import NewAdForm from './components/ads/newAdPage/NewAdForm';
+import NewAdPage from './components/ads/newAdPage/NewAdPage';
 function App() {
   const isInitiallyLogged = false;
   const [isLogged, setIsLogged] = React.useState(isInitiallyLogged);
@@ -31,9 +33,12 @@ function App() {
       <AuthContextProvider value={authValue}>
         {/*<AdsPage />*/}
         <LoginPage></LoginPage>
-        {isLogged ? <AdsPage /> : <div>hola</div>
+        {isLogged ? <AdsPage />
+
+          : <div>hola</div>
 
         }
+        <NewAdPage />
       </AuthContextProvider>
     </div>
   );

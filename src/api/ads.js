@@ -9,3 +9,9 @@ export const getAds = () => {
     const url = `${adsBaseUrl}/v1/adverts`;
     return client.get(url);
 };
+
+export const getTags = () => {
+    const url = `${adsBaseUrl}/v1/adverts/tags`;
+    //console.log(client.get(url))
+    return client.get(url);
+};

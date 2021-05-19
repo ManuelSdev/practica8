@@ -42,22 +42,30 @@ const LoginForm = ({ onSubmit, isLoading }) => {
     return (
         <form className="loginForm" onSubmit={handleSubmit}>
             <FormField
+                className="input"
+                labelClassName="label"
                 type="email"
                 name="email"
+                label="Correo electrónico"
+                placeholder="Dirección de email"
                 //onChange={even => console.log(even.target)}
                 //handleChange cambia el estado a medida que se escribe 
                 onChange={handleChange}
                 //value toma el valor que vamos teniendo en el estado
                 value={username}
             >
-                Dirección de email</FormField>
+            </FormField>
             <FormField
+                className="input"
+                labelClassName="label"
                 type="password"
                 name="password"
+                label="Contraseña"
+                placeholder="Contraseña"
                 value={password}
                 onChange={handleChange}
             >
-                Contraseña</FormField>
+            </FormField>
             <Button
                 //El submit será el onSubmit={handleSubmit}
                 type="submit"
