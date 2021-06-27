@@ -29,14 +29,7 @@ const NewAdPage = () => {
         }
     };
 
-    const test = {
-        name: 'aaaaa',
-        sale: false,
-        price: 1000,
-        tags: "mobile",
-        photo: null
-    }
-    createAd(test)
+
 
     console.log(tags)
     return (
