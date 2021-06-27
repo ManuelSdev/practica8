@@ -11,7 +11,7 @@ const FormField = ({ inputClassName, labelClassName, label, ...props }) => {
                     // autoComplete="off"
                     {...props}
                 />
-                {/*console.log(props.type)*/}
+                {/*console.log(typeof props.value)*/}
                 {label}
             </label>
         ) : (

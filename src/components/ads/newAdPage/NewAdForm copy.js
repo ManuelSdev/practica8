@@ -2,8 +2,7 @@ import Button from "../../shared/Button"
 import FormField from "../../shared/FormField"
 import React from 'react';
 import { createAd } from '../../../api/ads'
-const NewAdForm = ({ onSubmit, ...props }) => {
-    const allTags = props.tags;
+const NewAdForm = ({ tags, onSubmit }) => {
     const [details, setCredentials] = React.useState({
         name: '',
         sale: false,
@@ -44,18 +43,17 @@ const NewAdForm = ({ onSubmit, ...props }) => {
         sale: false,
         price: 1000,
         tags: ["mobile"],
-        photo: null,
+        photo: null
     }
     const handleSubmit = event => {
         event.preventDefault();
-        onSubmit(details);
-        console.log(details)
+        onSubmit(test);
+        console.log(test)
     };
     //console.log(event.target.value)
     console.log(details)
     console.log(arra.current)
-
-    const { name, price, sale, tags, photo } = details;
+    const { name, price } = details;
     return (
         <form className="has-text-left" onSubmit={handleSubmit}>
             <FormField
@@ -97,7 +95,7 @@ const NewAdForm = ({ onSubmit, ...props }) => {
             >
             </FormField>
             <p className="label">Selecciona al menos una etiqueta</p>
-            {allTags.map(tag => (
+            {tags.map(tag => (
                 <FormField
                     labelClassName="checkbox"
                     type="checkbox"

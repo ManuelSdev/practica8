@@ -4,8 +4,10 @@ import './AdsPage.css'
 import { data } from '../../../data'
 import AdsGrid from './AdsGrid'
 import Layout from '../../layout/Layout'
+import { Redirect } from 'react-router-dom';
 const AdsPage = () => {
     const [ads, setAds] = React.useState([]);
+
 
     React.useEffect(() => {
         getAds().then(setAds);
@@ -22,6 +24,7 @@ const AdsPage = () => {
         <div className="AdsPage">
             <Layout>
                 <AdsGrid ads={ads} />
+
             </Layout>
 
         </div>
@@ -29,5 +32,11 @@ const AdsPage = () => {
     )
 
 }
-
+/*
+                {console.log(' tamañoooo  ', ads.length)}
+                {ads.length == 0
+                    ? <Redirect to="/adverts/new" />
+                    : <AdsGrid ads={ads} />
+                }
+*/
 export default AdsPage

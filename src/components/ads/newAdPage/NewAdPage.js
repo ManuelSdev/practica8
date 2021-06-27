@@ -1,5 +1,5 @@
 import Layout from "../../layout/Layout"
-import { getTags } from '../../../api/ads'
+import { createAd, getTags } from '../../../api/ads'
 import React from 'react';
 import NewAdForm from "./NewAdForm";
 
@@ -10,11 +10,38 @@ const NewAdPage = () => {
     React.useEffect(() => {
         getTags().then(setTags);
     }, []);
+    //Este método bajará como prop onSubmit a <LoginForm>
+    const handleSubmit = async details => {
+        // login(credentials).then(() => onLogin());
+        // resetError();
+        // setIsLoading(true);
+        console.log("holi", details)
+        try {
+            await createAd(details);
+            //Los cambios en la referencia no ejectutan un nuevo render
+            //isLogged.current = true;
+        } catch (error) {
+            //setError(error);
+            window.alert(error)
+
+        } finally {
+            console.log('anuncio creado')
+        }
+    };
+
+    const test = {
+        name: 'aaaaa',
+        sale: false,
+        price: 1000,
+        tags: "mobile",
+        photo: null
+    }
+    createAd(test)
 
     console.log(tags)
     return (
         <Layout>
-            <NewAdForm tags={tags} />
+            <NewAdForm tags={tags} onSubmit={handleSubmit} />
         </Layout>
     )
 }

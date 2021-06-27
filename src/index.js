@@ -4,11 +4,17 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bulma/css/bulma.min.css';
+import { BrowserRouter as Router } from 'react-router-dom';
 
+import storage from './utils/storage';
+import { configureClient } from './api/client';
+
+const accessToken = storage.get('auth')
+configureClient({ accessToken });
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Router>
+    <App isInitiallyLogged={!!accessToken} />
+  </Router>,
   document.getElementById('root')
 );
 

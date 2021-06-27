@@ -5,11 +5,14 @@ import './App.css';
 import AdsPage from './components/ads/AdsPage/AdsPage';
 import LoginForm from './components/auth/LoginPage/LoginForm';
 import LoginPage from './components/auth/LoginPage/LoginPage';
-import { AuthContextProvider } from './components/context/AppLoginContext';
+import PrivateRoute from './components/auth/PrivateRoute/PrivateRoute';
+import { AuthContextProvider } from './components/auth/context';
 import NewAdForm from './components/ads/newAdPage/NewAdForm';
 import NewAdPage from './components/ads/newAdPage/NewAdPage';
-function App() {
-  const isInitiallyLogged = false;
+import { Switch, Route, Redirect } from 'react-router-dom';
+
+function App({ isInitiallyLogged }) {
+  //const isInitiallyLogged = false;
   const [isLogged, setIsLogged] = React.useState(isInitiallyLogged);
 
   const handleLogin = () => {
@@ -30,15 +33,36 @@ function App() {
   return (
 
     <div className="App">
+
       <AuthContextProvider value={authValue}>
         {/*<AdsPage />*/}
-        <LoginPage></LoginPage>
+        <Switch>
+          <Route path="/login" component={LoginPage}>
+
+          </Route>
+          <PrivateRoute path="/adverts/new">
+            <NewAdPage />
+          </PrivateRoute>
+          <PrivateRoute path="/adverts">
+            <AdsPage />
+          </PrivateRoute>
+
+          <PrivateRoute exact path="/">
+            <Redirect to="/adverts" />
+          </PrivateRoute>
+
+        </Switch>
+        {/**
+         *      
+            <LoginPage></LoginPage>
         {isLogged ? <AdsPage />
 
           : <div>hola</div>
 
         }
         <NewAdPage />
+         */}
+
       </AuthContextProvider>
     </div>
   );

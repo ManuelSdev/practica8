@@ -1,5 +1,5 @@
 import { logout } from '../../../api/auth';
-import { AuthContextConsumer } from "../../context/AppLoginContext"
+import { AuthContextConsumer } from "../context"
 import Button from "../../shared/Button"
 const AuthButton = ({ isLogged, onLogout }) => {
     const handleLogoutClick = () => {

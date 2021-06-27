@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from "../../shared/Button"
 import LoginForm from "./LoginForm"
-import { AuthContextConsumer } from '../../context/AppLoginContext';
+import { AuthContextConsumer } from '../context';
 import { login } from '../../../api/auth'
 
 /**
@@ -12,7 +12,7 @@ import { login } from '../../../api/auth'
  * El paso de parámetros anterior es igual que cuando llegan por props que baja el padre
  * 
  */
-const LoginPage = ({ onLogin }) => {
+const LoginPage = ({ onLogin, history, location }) => {
     const [error, setError] = React.useState(null);
     const [isLoading, setIsLoading] = React.useState(false);
     //Esta uso de useRef almacena un valor que persiste mientras no lo cambies
@@ -23,10 +23,10 @@ const LoginPage = ({ onLogin }) => {
     React.useEffect(() => {
         if (isLogged.current) {
             onLogin();
-            //const { from } = location.state || { from: { pathname: '/' } };
+            const { from } = location.state || { from: { pathname: '/' } };
             //** const from = location.state ? location.state.from : {pathname: '/'}
 
-            //history.replace(from);
+            history.replace(from);
         }
     });
     //Este método bajará como prop onSubmit a <LoginForm>

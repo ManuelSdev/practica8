@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import AuthButton from "../auth/AuthButton/AuthButton"
 import Button from "../shared/Button"
 import Search from "./Search"
@@ -11,7 +12,7 @@ const Header = () => {
             <div className="container is-fluid">
                 <div className="notification is-primary">
                     <Search></Search>
-                    <Button>Subir producto</Button>
+                    <Link to="/adverts/new"> <Button>Subir producto</Button></Link>
                     <AuthButton>Log</AuthButton>
 
                 </div>
